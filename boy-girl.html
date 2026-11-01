@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding of Boy & Girl</title>
+    <link rel="stylesheet" href="boy-girl.css">
+</head>
+
+<body>
+
+    <header class="cover">
+        <div class="cover-content">
+            <p class="small-title">THE WEDDING OF</p>
+
+            <h1>Boy</h1>
+            <div class="ampersand">&</div>
+            <h1>Girl</h1>
+
+            <p>Minggu, 20 Desember 2026</p>
+
+            <button class="primary-button" onclick="openInvitation()">
+                BUKA UNDANGAN
+            </button>
+        </div>
+    </header>
+
+    <main id="invitation" hidden>
+
+        <section class="couple-section">
+            <p class="section-label">THE WEDDING INVITATION</p>
+            <h2>Assalamualaikum Warahmatullahi Wabarakatuh</h2>
+
+            <p class="intro">
+                Dengan memohon rahmat dan ridho Allah SWT,
+                kami mengundang teman-teman untuk hadir
+                dan memberikan doa restu pada pernikahan kami.
+            </p>
+
+            <div class="couple-names">
+                Boy<br>&<br>Girl
+            </div>
+
+            <p class="intro">
+                Dua hati, satu tujuan, satu perjalanan baru.
+            </p>
+        </section>
+
+        <section>
+            <p class="section-label">SAVE THE DATE</p>
+            <h2>Menuju Hari Bahagia</h2>
+
+            <div class="countdown">
+                <div class="time-box">
+                    <strong id="days">00</strong>
+                    <span>HARI</span>
+                </div>
+
+                <div class="time-box">
+                    <strong id="hours">00</strong>
+                    <span>JAM</span>
+                </div>
+
+                <div class="time-box">
+                    <strong id="minutes">00</strong>
+                    <span>MENIT</span>
+                </div>
+
+                <div class="time-box">
+                    <strong id="seconds">00</strong>
+                    <span>DETIK</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="couple-section">
+            <p class="section-label">WEDDING EVENT</p>
+            <h2>Detail Acara</h2>
+
+            <div class="event-card">
+                <h3>Akad Nikah</h3>
+                <p>Minggu, 20 Desember 2026</p>
+                <p>Pukul 08.00 WITA - Selesai</p>
+                <p>Lokasi: Nama Gedung / Tempat Acara</p>
+            </div>
+
+            <div class="event-card">
+                <h3>Resepsi</h3>
+                <p>Minggu, 20 Desember 2026</p>
+                <p>Pukul 11.00 WITA - Selesai</p>
+                <p>Lokasi: Nama Gedung / Tempat Acara</p>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <p class="section-label">OUR MOMENTS</p>
+            <h2>Gallery</h2>
+
+            <div class="gallery-placeholder">
+                Boy & Girl
+            </div>
+        </section>
+
+        <section class="rsvp">
+            <p class="section-label">KONFIRMASI KEHADIRAN</p>
+            <h2>RSVP</h2>
+
+            <p class="intro">
+                Kami menantikan kehadiran dan doa teman-teman.
+            </p>
+
+            <form onsubmit="sendRSVP(event)">
+                <input
+                    type="text"
+                    id="guestName"
+                    placeholder="Nama lengkap"
+                    required
+                >
+
+                <select id="attendance" required>
+                    <option value="">Pilih kehadiran</option>
+                    <option value="Hadir">Hadir</option>
+                    <option value="Tidak dapat hadir">Tidak dapat hadir</option>
+                </select>
+
+                <button class="primary-button" type="submit">
+                    KIRIM KONFIRMASI
+                </button>
+            </form>
+        </section>
+
+        <section>
+            <p class="section-label">WITH LOVE</p>
+            <h2>Boy & Girl</h2>
+            <p class="intro">
+                Terima kasih telah menjadi bagian dari
+                cerita bahagia kami.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>MADE WITH LOVE BY RAMAIIN.</p>
+    </footer>
+
+    <script>
+        function openInvitation() {
+            const invitation = document.getElementById("invitation");
+            invitation.hidden = false;
+            invitation.scrollIntoView({ behavior: "smooth" });
+        }
+
+        const weddingDate =
+            new Date("December 20, 2026 08:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.max(0, Math.floor(
+                distance / (1000 * 60 * 60 * 24)
+            ));
+
+            const hours = Math.max(0, Math.floor(
+                (distance % (1000 * 60 * 60 * 24)) /
+                (1000 * 60 * 60)
+            ));
+
+            const minutes = Math.max(0, Math.floor(
+                (distance % (1000 * 60 * 60)) / (1000 * 60)
+            ));
+
+            const seconds = Math.max(0, Math.floor(
+                (distance % (1000 * 60)) / 1000
+            ));
+
+            document.getElementById("days").textContent = days;
+            document.getElementById("hours").textContent = hours;
+            document.getElementById("minutes").textContent = minutes;
+            document.getElementById("seconds").textContent = seconds;
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        function sendRSVP(event) {
+            event.preventDefault();
+
+            const name =
+                document.getElementById("guestName").value;
+
+            const attendance =
+                document.getElementById("attendance").value;
+
+            const message =
+                "Halo Boy & Girl! Saya " + name +
+                ". Konfirmasi kehadiran: " + attendance + ".";
+
+            const url =
+                "https://wa.me/6285248462992?text=" +
+                encodeURIComponent(message);
+
+            window.open(url, "_blank");
+        }
+    </script>
+
+</body>
+</html>
