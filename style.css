@@ -166,13 +166,36 @@ body {
     background-color: #f8f5ef;
     text-align: center;
 }
-
 .template-image {
     height: 420px;
-    background-color: #e9dfd2;
+    background: linear-gradient(
+        145deg,
+        #f4ede3,
+        #dfd0bd
+    );
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.template-image::before {
+    content: "";
+    position: absolute;
+    width: 230px;
+    height: 310px;
+    border: 1px solid #fffdf9;
+    outline: 1px solid rgba(255,255,255,0.5);
+    outline-offset: 8px;
+}
+
+.template-image span {
+    font-family: Georgia, serif;
+    font-size: 90px;
+    color: #fffdf9;
+    z-index: 1;
+}
 }
 
 .template-image span {
