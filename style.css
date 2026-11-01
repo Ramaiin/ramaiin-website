@@ -91,24 +91,7 @@ body {
     background-color: #79685a;
 }
 
-/* 5. TAMPILAN IPAD DAN HP */
-@media (max-width: 600px) {
-    .navbar {
-        padding: 22px 6%;
-    }
-
-    .nav-links {
-        gap: 13px;
-    }
-
-    .nav-links a {
-        font-size: 11px;
-    }
-
-    .hero h1 {
-        font-size: 54px;
-    }
-}/* 6. BAGIAN KATALOG */
+/* 5. BAGIAN KATALOG */
 .templates {
     padding: 100px 8%;
     background-color: #fffdf9;
@@ -133,7 +116,24 @@ body {
     color: #79685a;
 }
 
+/* 6. TAMPILAN HP DAN IPAD */
 @media (max-width: 600px) {
+    .navbar {
+        padding: 22px 6%;
+    }
+
+    .nav-links {
+        gap: 13px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .hero h1 {
+        font-size: 54px;
+    }
+
     .templates {
         padding: 75px 6%;
     }
