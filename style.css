@@ -1,8 +1,13 @@
-/* Pengaturan dasar website */
+
+/* 1. PENGATURAN DASAR */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -11,9 +16,37 @@ body {
     color: #3d342e;
 }
 
-/* Tampilan halaman utama */
+/* 2. MENU NAVIGASI */
+.navbar {
+    width: 100%;
+    padding: 25px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 27px;
+    font-weight: bold;
+    color: #3d342e;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #3d342e;
+    font-size: 14px;
+}
+
+/* 3. HALAMAN PEMBUKA */
 .hero {
-    min-height: 100vh;
+    min-height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,14 +55,57 @@ body {
     padding: 30px;
 }
 
-.hero h1 {
-    font-family: Georgia, serif;
-    font-size: 48px;
-    margin-bottom: 18px;
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
 }
 
-.hero p {
+.hero h1 {
+    font-family: Georgia, serif;
+    font-size: 72px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.description {
     font-size: 16px;
-    line-height: 1.7;
+    line-height: 1.8;
     max-width: 450px;
+}
+
+/* 4. TOMBOL UTAMA */
+.main-button {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 16px 30px;
+    background-color: #3d342e;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.main-button:hover {
+    background-color: #79685a;
+}
+
+/* 5. TAMPILAN IPAD DAN HP */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 22px 6%;
+    }
+
+    .nav-links {
+        gap: 13px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .hero h1 {
+        font-size: 54px;
+    }
 }
