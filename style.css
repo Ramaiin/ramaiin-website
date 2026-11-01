@@ -96,11 +96,23 @@ body {
     padding: 100px 8%;
     background-color: #fffdf9;
     text-align: center;
-}
 
 .section-heading {
+    width: 100%;
     max-width: 650px;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.section-heading h2 {
+    width: 100%;
+    text-align: center;
+}
+
+.section-heading p {
+    width: 100%;
+    text-align: center;
 }
 
 .section-heading h2 {
